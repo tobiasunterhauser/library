@@ -4,6 +4,7 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.UUID" %>
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@ String url = "jdbc:postgresql://localhost:5432/library?user=postgres&password=12
 
 Connection c = DriverManager.getConnection(url);
 
-//PreparedStatement pst = c.prepareStatement("SELECT datname FROM pg_database");
+
 PreparedStatement pst = c.prepareStatement("SELECT id, title, year FROM books");
 ResultSet result = pst.executeQuery();
 
@@ -34,16 +35,19 @@ ResultSet result = pst.executeQuery();
 
 %>
 <header class="text-center p-5 mb-5 bg-light">
-        <h1>Benutzer - Home</h1>
+        <h1>Bücher - Übersicht</h1>
     </header>
 
     <div class="text-center mb-5">
-        <button class="btn btn-success">Eintrag hinzufügen</button>
+    <%
+    out.println("<a href=\"add.jsp\" class=\"btn btn-success\">Buch hinzufügen</a>");
+    %>
+        
     </div>
     <div class=" container text-center">
         <table class="table">
             <tr>
-                <th>ID</th>
+                
                 <th>Title</th>
                 <th>Jahr</th>
                 <th></th>
@@ -52,13 +56,14 @@ ResultSet result = pst.executeQuery();
             <tr>
             	<%
             	while(result.next()){
+            		
             		out.println("<tr>");
-            		out.println("<td>" + result.getString("id") + "</td>");
+            		
             		out.println("<td>" + result.getString("title") + "</td>");
             		out.println("<td>" + result.getString("year") + "</td>");
-            		
-            		out.println("<td><button class=\"btn btn-secondary\">Bearbeiten</button></td>");
- 					out.println("<td><button class=\"btn btn-danger\">Löschen</button></td>");
+            		out.println("<td><a class=\"btn btn-danger\" href=\"delete.jsp?book="+ result.getObject("id") +  "\">Löschen" + "</a></td>");
+            		out.println("<td><a class=\"btn btn-secondary \" href=\"modify.jsp?book="+ result.getObject("id") +  "\">Bearbeiten" + "</a></td>");
+ 					//out.println("<td><button class=\"btn btn-danger\">Löschen</button></td>");
  					
             	}
             	
@@ -74,7 +79,10 @@ ResultSet result = pst.executeQuery();
 
 
 
+<script>
 
+
+</script>
 
 
 
