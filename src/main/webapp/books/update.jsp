@@ -49,7 +49,7 @@ Connection c = DriverManager.getConnection(url);
 
 
 <h3 class="color-green mb-3">Book <%=newTitle %> was modified succesfully</h3>
-<a href="start.jsp" class="btn btn-success">Go back</a>
+<a href="start.jsp" class="btn btn-success">Zurück</a>
 </div>
 
 

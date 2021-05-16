@@ -34,14 +34,34 @@ ResultSet result = pst.executeQuery();
 
 
 %>
-<header class="text-center p-5 mb-5 bg-light">
+<header>
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand ms-2" href="#">Library</a>
+ 
+
+ 	<ul class="navbar-nav ms-auto me-2">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://localhost:8080/library/loan/start.jsp">Einträge</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="http://localhost:8080/library/books/start.jsp" >Bücher</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:8080/library/user/start.jsp">Benutzer</a>
+      </li>
+    </ul>
+</nav>
+</header>
+<section class="text-center p-5 mb-5 bg-light">
         <h1>Bücher - Übersicht</h1>
-    </header>
+    </section>
 
     <div class="text-center mb-5">
-    <%
-    out.println("<a href=\"add.jsp\" class=\"btn btn-success\">Buch hinzufügen</a>");
-    %>
+    
+    
+   <a href="add.jsp" class="btn btn-success">Buch hinzufügen</a>
+   
         
     </div>
     <div class=" container text-center">

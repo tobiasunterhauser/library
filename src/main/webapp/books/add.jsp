@@ -24,7 +24,7 @@
 	
 </form>
 
-<a href="start.jsp" class="mt-3 btn btn-danger">Go back</a>
+<a href="start.jsp" class="mt-3 btn btn-danger">Abbrechen</a>
 </div>
 
 
