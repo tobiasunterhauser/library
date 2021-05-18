@@ -66,7 +66,7 @@ Connection c = DriverManager.getConnection(url);
 <div>
 	<input type="date" name="deadline"
       value="<%=cDate %>"
-       min="2021-01-01" max="2023-12-31">
+       min="<%=cDate %>" max="2023-12-31">
 </div>
 <br>
 
